@@ -1,0 +1,31 @@
+apply plugin: 'java'
+
+project.ext.lwjglVersion = "3.0.0"
+
+archivesBaseName = 'DOtS'
+version = '001'
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+	compile 'com.google.guava:guava:19.0'
+	compile "org.lwjgl:lwjgl:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
+	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
+	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
+	compile 'io.netty:netty-microbench:4.1.3.Final'
+}
+
+task run(type: JavaExec, dependsOn: classes) {
+    main = 'Main'
+    classpath sourceSets.main.runtimeClasspath
+    classpath configurations.runtime
+}
+
+jar {
+	from configurations.compile.collect { zipTree it }
+	manifest.attributes "Main-Class": "com.kongkongmao.dots.main.Main"
+}
