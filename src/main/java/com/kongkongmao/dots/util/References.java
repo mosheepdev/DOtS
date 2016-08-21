@@ -23,7 +23,7 @@ public class References {
 	/**
 	 * The name of the program refers to the users.
 	 */
-	public static final String NAME = "Defend Of the SBs";
+	public static final String NAME = "dots.name";
 	/**
 	 * The name of the program refers to the developers.
 	 */

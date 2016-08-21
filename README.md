@@ -33,7 +33,9 @@ If you are the member of the [Kongkongmao Club](http://kongkongmao.club), please
 
 If you aren't the member, please use [Pull Request](https://github.com/kongkongmao/DOtS/compare) to submit your improvement. Your contribution will be accepted and commended after we authorized it.
 
-如果您不是俱乐部成员年，请使用[Pull Request](https://github.com/kongkongmao/DOtS/compare)来提交代码。在我们认为您的代码对程序有提升之时，我们将会接受并嘉奖您的贡献。
+如果您不是俱乐部成员，请使用[Pull Request](https://github.com/kongkongmao/DOtS/compare)来提交代码。在我们认为您的代码对程序有提升之时，我们将会接受并嘉奖您的贡献。
+
+### Libraries / 库
 
 The libraries used in the coding:
 
