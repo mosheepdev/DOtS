@@ -3,12 +3,13 @@ package com.kongkongmao.dots.util;
 import static com.kongkongmao.dots.util.Utils.getDir;
 import static com.kongkongmao.dots.util.Utils.createFile;
 import static com.kongkongmao.dots.util.Utils.writeLine;
-import static com.kongkongmao.dots.util.Utils.readLineS;
 import static com.kongkongmao.dots.util.Utils.readLineSP;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,7 +28,7 @@ public class Configuration {
 	/**
 	 * The configuration file.
 	 */
-	private static File config = new File(getDir() + "TNAI-Config.txt");
+	private static File config = new File(getDir() + "\\TNAI-Config.txt");
 
 	/**
 	 * The byte size of the configuration file.
@@ -39,7 +40,9 @@ public class Configuration {
 	 * The map will be initialized when first loading the config file. <br>
 	 * When a setting is modified, the value in the map will be changed, and
 	 * <br>
-	 * the config file will be modified.
+	 * the config file will be modified only when the program is closing. <br>
+	 * Developing should avoid getting options straight through this Map <br>
+	 * for avoiding some critical IO issues.
 	 */
 	private static Map<String, String> settings = new HashMap<String, String>();
 
@@ -63,22 +66,8 @@ public class Configuration {
 	 * Write the system default configuration.
 	 */
 	private static void writeDefaultConfig() {
-		writeLine(config.toString(), "lang:en_US");
-		settings.put("lang", "en_US");
-	}
-
-	/**
-	 * Check if the configuration file is invalid. <br>
-	 * This is only the first check.
-	 */
-	private static boolean checkBroken() {
-		try {
-			if (!readLineS(config.toString(), 1).startsWith("lang:"))
-				return false;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return true;
+		writeLine(config.toString(), ConfigLang.NAME + ":" + "en_US");
+		settings.put(ConfigLang.NAME, ConfigLang.DEFAULT);
 	}
 
 	/**
@@ -86,7 +75,7 @@ public class Configuration {
 	 */
 	private static void readConfigs() {
 		try {
-			settings.put("lang", readLineSP(config.toString(), 1, 6));
+			settings.put(ConfigLang.NAME, readLineSP(config.toString(), ConfigLang.ID, 6));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -94,25 +83,89 @@ public class Configuration {
 
 	public static void initialize() {
 		configFile();
-		checkBroken();
 		readConfigs();
-	}
-
-	public static String get(String key) {
-		return settings.get(key);
-	}
-
-	public static void set(String key, String value) {
-		settings.put(key, value);
+		ConfigLang.initialize(settings.get(ConfigLang.NAME));
 	}
 
 	/**
-	 * This method must be casted in the closing of the program! <br>
+	 * This method must be casted in the closing of the program, <br>
 	 * Otherwise the changing of the user would not be saved!
 	 */
 	public static void closeUp() {
 		createFile(config.toString(), true);
-		writeLine(config.toString(), "lang:" + settings.get("lang"));
+		writeLine(config.toString(), ConfigLang.NAME + ":" + settings.get(ConfigLang.NAME));
+	}
+
+	/**
+	 * Base of a configuration. Every configuration class should extend <br>
+	 * this class, further has its own initializing value method to check <br>
+	 * the values.
+	 */
+	protected static abstract class Config {
+
+		/**
+		 * The ID number of the configuration, indicates the line <br>
+		 * of the configuration in the configuration file.
+		 */
+		static final int ID = 0;
+
+		/**
+		 * The name of the configuration.
+		 */
+		static final String NAME = "name_of_configuration";
+
+		/**
+		 * Default value of the configuration.
+		 */
+		static final String DEFAULT = "default_value";
+
+		static String value;
+
+		abstract String get();
+
+		abstract void set(String $value);
+
+	}
+
+	public static class ConfigLang extends Config {
+
+		protected static final int ID = 1;
+
+		protected static final String NAME = "lang";
+
+		protected static final String DEFAULT = "en_US";
+
+		private static String value;
+
+		private static final List<String> LEGAL_VAL = new ArrayList<String>() {
+			private static final long serialVersionUID = 684925698209892946L;
+			{
+				add("en_US");
+				add("zh_CN");
+				add("zh_TW");
+			}
+		};
+
+		protected static void initialize(String $value) {
+			if (LEGAL_VAL.contains($value))
+				value = $value;
+			else {
+				value = DEFAULT;
+				settings.put(NAME, DEFAULT);
+			}
+		}
+
+		@Override
+		public String get() {
+			return value;
+		}
+
+		@Override
+		public void set(String $value) {
+			value = $value;
+			settings.put(NAME, $value);
+		}
+
 	}
 
 }

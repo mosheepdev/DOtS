@@ -1,5 +1,7 @@
 package com.kongkongmao.dots.main;
 
+import com.kongkongmao.dots.util.Configuration;
+
 /**
  * Class: Main <br>
  * Package: com.kongkongmao.dots.main <br>
@@ -8,6 +10,7 @@ package com.kongkongmao.dots.main;
 public class Main {
 
 	public static void main(String[] args) {
+		Configuration.initialize();
 	}
 
 }
