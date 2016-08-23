@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.util.Calendar;
@@ -133,6 +134,11 @@ public class Utils {
 		l = l + msg;
 		lines.set(line - 1, l);
 		Files.write(f.toPath(), lines);
+	}
+
+	public static InputStream getContentRes(String path) {
+		InputStream is = ClassLoader.getSystemClassLoader().getSystemResourceAsStream(path);
+		return is;
 	}
 
 }

@@ -15,6 +15,8 @@ public class References {
 	 */
 	public static final String MAIN_CLASS = "com.kongkongmao.dots.main.Main";
 
+	public static final String ARCHIVE_NAME = "DOtS-001.jar";
+
 	/**
 	 * The default encoding method of the program.
 	 */
