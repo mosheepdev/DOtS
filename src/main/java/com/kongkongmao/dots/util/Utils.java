@@ -4,11 +4,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.Calendar;
 import java.util.List;
+
+import com.google.common.io.Resources;
 
 /**
  * Class: Utils <br>
@@ -136,9 +139,10 @@ public class Utils {
 		Files.write(f.toPath(), lines);
 	}
 
-	public static InputStream getContentRes(String path) {
-		InputStream is = ClassLoader.getSystemClassLoader().getSystemResourceAsStream(path);
-		return is;
+	public static List<String> getContentRes(String path) throws IOException {
+		URL $url = Resources.getResource(path);
+		Charset cs = Charset.forName(References.DEFAULT_ENCODE);
+		return Resources.readLines($url, cs);
 	}
 
 }
