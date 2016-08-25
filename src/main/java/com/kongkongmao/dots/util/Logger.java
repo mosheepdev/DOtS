@@ -40,14 +40,14 @@ public class Logger {
 	 * will be deleted.
 	 */
 	public void logFile() {
-		createFile(log.toPath().toString(), true);
+		createFile(log.toString(), true);
 	}
 
 	/**
 	 * Write the logging message to the log file.
 	 */
 	private void writeToLog(String msg) {
-		writeLine(log.getPath(), msg);
+		writeLine(log.toString(), msg);
 	}
 
 	/**

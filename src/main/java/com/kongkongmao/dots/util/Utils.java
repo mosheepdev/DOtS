@@ -36,7 +36,7 @@ public class Utils {
 	}
 
 	/**
-	 * Create a file. NOT INSIDE THE JAR.
+	 * Create a file.
 	 * 
 	 * @param path
 	 *            The full path of the file.
@@ -113,7 +113,7 @@ public class Utils {
 
 	/**
 	 * Write data to a specific line of a text file. <br>
-	 * WILL override the old data.
+	 * Will override the old data.
 	 */
 	public static void writeLineS(String filePath, String msg, int line) throws IOException {
 		File f = new File(filePath);
@@ -139,6 +139,9 @@ public class Utils {
 		Files.write(f.toPath(), lines);
 	}
 
+	/**
+	 * Get the content of a resource file as a list of string.
+	 */
 	public static List<String> getContentRes(String path) throws IOException {
 		URL $url = Resources.getResource(path);
 		Charset cs = Charset.forName(References.DEFAULT_ENCODE);

@@ -18,7 +18,7 @@ public class References {
 	public static final String ARCHIVE_NAME = "DOtS-001.jar";
 
 	/**
-	 * The default encoding method of the program.
+	 * The default characters encoding method of the program.
 	 */
 	public static final String DEFAULT_ENCODE = "utf-8";
 

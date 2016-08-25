@@ -32,6 +32,12 @@ public class I18n {
 	};
 
 	public static void initialize() {
+		for (Locales l : Locales.values())
+			try {
+				l.readValues();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		loc_name = Configuration.cLanguage.get();
 		locale = Locales.prase(loc_name);
 	}
