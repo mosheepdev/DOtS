@@ -46,9 +46,10 @@ public class I18n {
 	 * Switch the locale of the internationalization.
 	 */
 	public static void switchLoc(String loc) {
-		if (LEGAL_VAL.contains(loc))
+		if (LEGAL_VAL.contains(loc)) {
 			loc_name = loc;
-		else
+			locale = Locales.prase(loc);
+		} else
 			throw new IllegalArgumentException("No such locale!");
 	}
 
