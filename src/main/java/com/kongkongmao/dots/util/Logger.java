@@ -19,7 +19,7 @@ public class Logger {
 	/**
 	 * The log file.
 	 */
-	private File log = new File(getDir() + "\\TNAI-Log.txt");
+	private File log = new File(getDir() + "/TNAI-Log.txt");
 
 	/**
 	 * The thread that this logger is recording.

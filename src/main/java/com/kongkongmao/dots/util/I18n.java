@@ -1,8 +1,5 @@
 package com.kongkongmao.dots.util;
 
-import static com.kongkongmao.dots.util.Utils.getDir;
-
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,8 +63,6 @@ public class I18n {
 
 		private String name;
 
-		private File langFile = new File(getDir() + "\\langs\\" + name + ".lang");
-
 		private Map<String, String> values = new HashMap<String, String>();
 
 		Locales() {
@@ -80,21 +75,23 @@ public class I18n {
 		}
 
 		public void readValues() throws IOException {
-			List<String> trans = Utils.getContentRes("dots\\i18n\\" + name + ".lang");
+			List<String> trans = Utils.getContentRes("dots/i18n/" + name + ".lang");
 			for (String x : trans) {
 				int index = x.indexOf(IND);
-				values.put(x.substring(0, index), x.substring(index));
+				values.put(x.substring(0, index), x.substring(index + 1));
 			}
 		}
 
 		public String reveal(String key) {
+			System.out.println("In locale " + name + " , I translated " + key + " into " + values.get(key));
 			return values.get(key);
 		}
 
 		public static Locales prase(String x) {
 			for (Locales loc : Locales.values()) {
-				if (loc.name == x)
+				if (loc.name.equals(x)) {
 					return loc;
+				}
 			}
 			return EN_US;
 		}
