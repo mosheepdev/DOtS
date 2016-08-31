@@ -138,10 +138,10 @@ public class Utils {
 		lines.set(line - 1, l);
 		Files.write(f.toPath(), lines);
 	}
-	
+
 	/**
 	 * Get the content of a resource file as a array of bytes.
-	 * */
+	 */
 	public static byte[] getRes(String path) throws IOException {
 		URL url = Resources.getResource(path);
 		return Resources.toByteArray(url);
