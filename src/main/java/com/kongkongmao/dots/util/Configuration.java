@@ -28,7 +28,7 @@ public class Configuration {
 	/**
 	 * The configuration file.
 	 */
-	private static File config = new File(getDir() + "\\TNAI-Config.txt");
+	private static File config = new File(getDir() + "\\DOtS-Config.txt");
 
 	/**
 	 * The byte size of the configuration file.
