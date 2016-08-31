@@ -9,6 +9,11 @@ import org.lwjgl.BufferUtils;
 
 import static org.lwjgl.opengl.GL11.*;
 
+/**
+ * Class: Texture <br>
+ * Package: com.kongkongmao.dots.gui <br>
+ * Description: The working frame of the textures.
+ */
 public class Texture {
 
 	private int id;

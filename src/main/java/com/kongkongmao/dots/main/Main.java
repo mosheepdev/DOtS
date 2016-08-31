@@ -14,6 +14,7 @@ public class Main {
 	private static final Logger logger = new Logger("Main");
 
 	public static void main(String[] args) {
+		logger.logFile();
 		logger.info("Welcome to DOtS!");
 		logger.info("Initializing the client...");
 		Configuration.initialize();
