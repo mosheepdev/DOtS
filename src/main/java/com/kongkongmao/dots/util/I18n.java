@@ -83,7 +83,6 @@ public class I18n {
 		}
 
 		public String reveal(String key) {
-			System.out.println("In locale " + name + " , I translated " + key + " into " + values.get(key));
 			return values.get(key);
 		}
 
