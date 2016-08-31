@@ -30,8 +30,8 @@ public class Logger {
 		thread = "Unknown";
 	}
 
-	public Logger(String $thread) {
-		thread = $thread;
+	public Logger(String _thread) {
+		thread = _thread;
 	}
 
 	/**

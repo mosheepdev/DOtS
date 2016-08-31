@@ -138,14 +138,22 @@ public class Utils {
 		lines.set(line - 1, l);
 		Files.write(f.toPath(), lines);
 	}
+	
+	/**
+	 * Get the content of a resource file as a array of bytes.
+	 * */
+	public static byte[] getRes(String path) throws IOException {
+		URL url = Resources.getResource(path);
+		return Resources.toByteArray(url);
+	}
 
 	/**
 	 * Get the content of a resource file as a list of string.
 	 */
 	public static List<String> getContentRes(String path) throws IOException {
-		URL $url = Resources.getResource(path);
+		URL url = Resources.getResource(path);
 		Charset cs = Charset.forName(References.DEFAULT_ENCODE);
-		return Resources.readLines($url, cs);
+		return Resources.readLines(url, cs);
 	}
 
 }
