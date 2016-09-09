@@ -20,7 +20,7 @@ public class I18n {
 	private static Locales locale;
 
 	private static final List<String> LEGAL_VAL = new ArrayList<String>() {
-		private static final long serialVersionUID = 1L;
+		private static final long serialVersionUID = 233666998L;
 		{
 			add("en_US");
 			add("zh_CN");
@@ -36,7 +36,7 @@ public class I18n {
 				e.printStackTrace();
 			}
 		loc_name = Configuration.cLanguage.get();
-		locale = Locales.prase(loc_name);
+		locale = Locales.parse(loc_name);
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class I18n {
 	public static void switchLoc(String loc) {
 		if (LEGAL_VAL.contains(loc)) {
 			loc_name = loc;
-			locale = Locales.prase(loc);
+			locale = Locales.parse(loc);
 		} else
 			throw new IllegalArgumentException("No such locale!");
 	}
@@ -77,16 +77,22 @@ public class I18n {
 		public void readValues() throws IOException {
 			List<String> trans = Utils.getContentRes("dots/i18n/" + name + ".lang");
 			for (String x : trans) {
-				int index = x.indexOf(IND);
-				values.put(x.substring(0, index), x.substring(index + 1));
+				if (x.indexOf(IND) != -1) {
+					int index = x.indexOf(IND);
+					values.put(x.substring(0, index), x.substring(index + 1));
+				} else
+					;
 			}
 		}
 
 		public String reveal(String key) {
-			return values.get(key);
+			if (values.containsKey(key))
+				return values.get(key);
+			else
+				return key;
 		}
 
-		public static Locales prase(String x) {
+		public static Locales parse(String x) {
 			for (Locales loc : Locales.values()) {
 				if (loc.name.equals(x)) {
 					return loc;
