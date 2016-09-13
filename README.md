@@ -47,7 +47,7 @@ The libraries used in the coding:
 
 [NIO(Netty)](http://netty.io/)
 
-[JOML](https://https://github.com/JOML-CI/JOML)
+[JOML](https://github.com/JOML-CI/JOML)
 
 以上为程序使用到的库文件。
 
