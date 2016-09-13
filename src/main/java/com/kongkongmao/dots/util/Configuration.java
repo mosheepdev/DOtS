@@ -13,9 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class: Configuration <br>
- * Package: com.kongkongmao.dots.util <br>
- * Description: Allow users to change the runtime.
+ * Allow users to change the runtime configuration.
  */
 // A "standard" configuration file should be:
 //

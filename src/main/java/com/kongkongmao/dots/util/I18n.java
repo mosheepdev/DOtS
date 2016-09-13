@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class: I18n <br>
- * Package: com.kongkongmao.dots.util <br>
- * Description: Internationalization and localization.
+ * Internationalization and localization.
  */
 public class I18n {
 
@@ -75,7 +73,7 @@ public class I18n {
 		}
 
 		public void readValues() throws IOException {
-			List<String> trans = Utils.getContentRes("dots/i18n/" + name + ".lang");
+			List<String> trans = Utils.getResContent("dots/i18n/" + name + ".lang");
 			for (String x : trans) {
 				if (x.indexOf(IND) != -1) {
 					int index = x.indexOf(IND);

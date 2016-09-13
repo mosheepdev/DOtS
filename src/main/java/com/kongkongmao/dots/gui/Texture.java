@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import org.lwjgl.BufferUtils;
 
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL13.*;
 
 /**
  * Class: Texture <br>
@@ -31,17 +32,16 @@ public class Texture {
 			height = bi.getHeight();
 			int[] pixels_r = new int[width * height];
 			pixels_r = bi.getRGB(0, 0, width, height, null, 0, width);
-			ByteBuffer pixels = BufferUtils.createByteBuffer(pixels_r.length);
+			ByteBuffer pixels = BufferUtils.createByteBuffer(width * height * 4);
 
-			for (int i = 0; i < width; i++) {
+			for (int i = 0; i < width; i++)
 				for (int j = 0; j < height; j++) {
-					int pixel = pixels_r[i * width + 4 - 1];
-					pixels.put((byte) ((pixel >> 16) & 0xFF)); // R
-					pixels.put((byte) ((pixel >> 8) & 0xFF)); // G
-					pixels.put((byte) (pixel & 0xFF)); // B
-					pixels.put((byte) ((pixel >> 24) & 0xFF)); // A
+					int pixel = pixels_r[i * width + j];
+					pixels.put((byte) ((pixel >> 020) & 0xff)); // R
+					pixels.put((byte) ((pixel >> 010) & 0xff)); // G
+					pixels.put((byte) (pixel & 0xff)); // B
+					pixels.put((byte) ((pixel >> 030) & 0xff)); // A
 				}
-			}
 
 			pixels.flip();
 			id = glGenTextures();
@@ -61,7 +61,9 @@ public class Texture {
 	/**
 	 * Bind the texture.
 	 */
-	public void bind() {
+	public void bind(int sampler) {
+		if (sampler >= 0 && sampler <= 31)
+			glActiveTexture(GL_TEXTURE0 + sampler);
 		glBindTexture(GL_TEXTURE_2D, id);
 	}
 

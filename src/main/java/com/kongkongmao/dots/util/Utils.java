@@ -14,9 +14,7 @@ import java.util.List;
 import com.google.common.io.Resources;
 
 /**
- * Class: Utils <br>
- * Package: com.kongkongmao.dots.util <br>
- * Description: Some very useful utilities.
+ * Some very useful wheels.
  */
 public class Utils {
 
@@ -37,11 +35,6 @@ public class Utils {
 
 	/**
 	 * Create a file.
-	 * 
-	 * @param path
-	 *            The full path of the file.
-	 * @param override
-	 *            Whether override the old file if the file already exists.
 	 */
 	public static void createFile(String path, boolean override) {
 		File f = new File(path);
@@ -150,7 +143,7 @@ public class Utils {
 	/**
 	 * Get the content of a resource file as a list of string.
 	 */
-	public static List<String> getContentRes(String path) throws IOException {
+	public static List<String> getResContent(String path) throws IOException {
 		URL url = Resources.getResource(path);
 		Charset cs = Charset.forName(References.DEFAULT_ENCODE);
 		return Resources.readLines(url, cs);

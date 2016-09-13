@@ -1,9 +1,7 @@
 package com.kongkongmao.dots.util;
 
 /**
- * Class: References <br>
- * Package: com.kongkongmao.dots.util <br>
- * Description: Provides the references to the program.
+ * Provides the references to the program.
  */
 public class References {
 
@@ -48,19 +46,5 @@ public class References {
 	 * The minor version number of the program, indicates the bugs fixing.
 	 */
 	public static final String VERSION_MINOR = "a";
-
-	/**
-	 * The version number used between the developers. EVERY change of the
-	 * program that are built should be reported as a new build, and the build
-	 * number would increase by 1. <br>
-	 * The first number indicates the first number of the VERSION_MAJOR,
-	 * scilicet the biggest version number. <br>
-	 * The last three numbers indicate the build number. <br>
-	 * Before every 'gradle build', all the developers should be noticed to
-	 * avoid conflict. <br>
-	 * If the situation occurs, please revert the project to the nearest
-	 * percipient version number.
-	 */
-	public static final String BUILD_NUMBER = "1-001";
 
 }

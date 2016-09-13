@@ -8,9 +8,7 @@ import static com.kongkongmao.dots.util.Utils.createFile;
 import java.io.File;
 
 /**
- * Class: Logger <br>
- * Package: com.kongkongmao.dot.util <br>
- * Description: The logger for the program. <br>
+ * The logger for the program. <br>
  * Every class that requires logging should initialize a new Logger <br>
  * for recording.
  */
@@ -51,7 +49,7 @@ public class Logger {
 	}
 
 	/**
-	 * Level: Info <br>
+	 * <i>Level: Info</i><br>
 	 * This type of message tells the user what is happening inside the <br>
 	 * program, and can be ignored.
 	 */
@@ -88,7 +86,7 @@ public class Logger {
 	}
 
 	/**
-	 * Level: Warning <br>
+	 * <i>Level: Warning</i> <br>
 	 * This type of message is used to show something that could hinder the
 	 * running <br>
 	 * of the program. Although they couldn't cause some major problem, users
@@ -110,7 +108,7 @@ public class Logger {
 	}
 
 	/**
-	 * Level: Error <br>
+	 * <i>Level: Error</i><br>
 	 * This type of message shows that something blocks the running of the
 	 * program. <br>
 	 * Users should look up the manual to fix it, or contact developers.
@@ -130,7 +128,7 @@ public class Logger {
 	}
 
 	/**
-	 * Level: Fatal <br>
+	 * <b><i>Level: Fatal</b></i> <br>
 	 * This type of message indicates the critical errors that can dump the <br>
 	 * whole program. Users should immediately report this type of message to
 	 * <br>
