@@ -20,6 +20,7 @@ public class MainLoop {
 			glfwPollEvents();
 			glfwSwapBuffers(MainWindow.win);
 		}
+		logger.info("Graphical loop is broke, the program is now cleaning up...");
 	}
 
 }
