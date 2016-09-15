@@ -2,15 +2,14 @@ package com.kongkongmao.dots.gui;
 
 import static org.lwjgl.opengl.GL20.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.FloatBuffer;
-import java.nio.file.Files;
 
 import org.joml.Matrix4f;
 import org.lwjgl.BufferUtils;
 
 import com.kongkongmao.dots.util.Logger;
+import com.kongkongmao.dots.util.Utils;
 
 public class Shader {
 
@@ -35,7 +34,7 @@ public class Shader {
 		prog = glCreateProgram();
 		vs = glCreateShader(GL_VERTEX_SHADER);
 		try {
-			glShaderSource(vs, Files.readAllLines(new File(file + ".vs").toPath()).toString());
+			glShaderSource(vs, Utils.readFileToSingleString(file + ".vs"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -47,7 +46,7 @@ public class Shader {
 
 		fs = glCreateShader(GL_FRAGMENT_SHADER);
 		try {
-			glShaderSource(fs, Files.readAllLines(new File(file + ".fs").toPath()).toString());
+			glShaderSource(fs, Utils.readFileToSingleString(file + ".fs"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -102,6 +101,15 @@ public class Shader {
 		if (loc != -1) {
 			glUniformMatrix4fv(loc, false, buffer);
 		}
+	}
+
+	protected void finalize() throws Throwable {
+		glDetachShader(prog, vs);
+		glDetachShader(prog, fs);
+		glDeleteShader(vs);
+		glDeleteShader(fs);
+		glDeleteProgram(prog);
+		super.finalize();
 	}
 
 }

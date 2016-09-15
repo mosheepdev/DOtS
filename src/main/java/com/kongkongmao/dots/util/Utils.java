@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -92,7 +93,7 @@ public class Utils {
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true)));
 			out.write(msg);
-			out.write("\r\n");
+			out.write("\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -147,6 +148,23 @@ public class Utils {
 		URL url = Resources.getResource(path);
 		Charset cs = Charset.forName(References.DEFAULT_ENCODE);
 		return Resources.readLines(url, cs);
+	}
+
+	/**
+	 * Get the content of a text file as a single string.
+	 */
+	public static String readFileToSingleString(String path) throws IOException {
+		List<String> lns = new ArrayList<String>();
+		try {
+			lns = Files.readAllLines(new File(path).toPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		StringBuilder sb = new StringBuilder();
+		for (String x : lns) {
+			sb.append(x).append("\n");
+		}
+		return sb.toString();
 	}
 
 }

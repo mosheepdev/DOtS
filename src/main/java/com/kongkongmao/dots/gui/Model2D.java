@@ -2,6 +2,7 @@ package com.kongkongmao.dots.gui;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.*;
+import static org.lwjgl.opengl.GL20.*;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -19,7 +20,7 @@ public class Model2D {
 	private int i_id;
 
 	public Model2D(float[] vertices, float[] tex_coords, int[] indices) {
-		d_count = vertices.length / 3;
+		d_count = indices.length;
 
 		v_id = glGenBuffers();
 		FloatBuffer data_v = createFBuffer(vertices);
@@ -44,14 +45,18 @@ public class Model2D {
 	}
 
 	public void render() {
-		glEnableClientState(GL_VERTEX_ARRAY);
-		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		// glEnableClientState(GL_VERTEX_ARRAY);
+		// glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		glEnableVertexAttribArray(0);
+		glEnableVertexAttribArray(1);
 
 		glBindBuffer(GL_ARRAY_BUFFER, v_id);
-		glVertexPointer(3, GL_FLOAT, 0, 0);
+		// glVertexPointer(3, GL_FLOAT, 0, 0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
 
 		glBindBuffer(GL_ARRAY_BUFFER, t_id);
-		glTexCoordPointer(2, GL_FLOAT, 0, 0);
+		// glTexCoordPointer(2, GL_FLOAT, 0, 0);
+		glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
 		glDrawElements(GL_TRIANGLES, d_count, GL_UNSIGNED_INT, 0);
@@ -60,8 +65,10 @@ public class Model2D {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-		glDisableClientState(GL_VERTEX_ARRAY);
+		glDisableVertexAttribArray(0);
+		glDisableVertexAttribArray(1);
+		// glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		// glDisableClientState(GL_VERTEX_ARRAY);
 	}
 
 	protected FloatBuffer createFBuffer(float[] data) {
@@ -70,6 +77,13 @@ public class Model2D {
 
 	protected IntBuffer createIBuffer(int[] data) {
 		return BufferUtils.createIntBuffer(data.length).put(data);
+	}
+
+	protected void finalize() throws Throwable {
+		glDeleteBuffers(v_id);
+		glDeleteBuffers(t_id);
+		glDeleteBuffers(i_id);
+		super.finalize();
 	}
 
 }
