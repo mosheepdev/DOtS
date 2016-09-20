@@ -29,7 +29,11 @@ public class Utils {
 
 	/**
 	 * The correct directory of the archive.
+	 * 
+	 * @deprecated Use it for getting absolute path only. Use . instead <br>
+	 *             to mark "this" directory.
 	 */
+	@Deprecated
 	public static String getDir() {
 		return System.getProperty("user.dir");
 	}
@@ -93,7 +97,7 @@ public class Utils {
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true)));
 			out.write(msg);
-			out.write("\n");
+			out.write("\r\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -161,9 +165,8 @@ public class Utils {
 			e.printStackTrace();
 		}
 		StringBuilder sb = new StringBuilder();
-		for (String x : lns) {
+		for (String x : lns)
 			sb.append(x).append("\n");
-		}
 		return sb.toString();
 	}
 

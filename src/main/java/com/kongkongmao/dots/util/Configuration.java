@@ -1,6 +1,5 @@
 package com.kongkongmao.dots.util;
 
-import static com.kongkongmao.dots.util.Utils.getDir;
 import static com.kongkongmao.dots.util.Utils.createFile;
 import static com.kongkongmao.dots.util.Utils.writeLine;
 import static com.kongkongmao.dots.util.Utils.readLineSP;
@@ -26,7 +25,7 @@ public class Configuration {
 	/**
 	 * The configuration file.
 	 */
-	private static File config = new File(getDir() + "\\DOtS-Config.txt");
+	private static File config = new File(".\\DOtS-Config.txt");
 
 	/**
 	 * The byte size of the configuration file.

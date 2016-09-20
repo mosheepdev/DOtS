@@ -67,9 +67,8 @@ public class I18n {
 		}
 
 		Locales(String x) {
-			if (I18n.LEGAL_VAL.contains(x)) {
+			if (I18n.LEGAL_VAL.contains(x))
 				name = x;
-			}
 		}
 
 		public void readValues() throws IOException {
@@ -78,8 +77,7 @@ public class I18n {
 				if (x.indexOf(IND) != -1) {
 					int index = x.indexOf(IND);
 					values.put(x.substring(0, index), x.substring(index + 1));
-				} else
-					;
+				}
 			}
 		}
 
@@ -91,11 +89,9 @@ public class I18n {
 		}
 
 		public static Locales parse(String x) {
-			for (Locales loc : Locales.values()) {
-				if (loc.name.equals(x)) {
+			for (Locales loc : Locales.values())
+				if (loc.name.equals(x))
 					return loc;
-				}
-			}
 			return EN_US;
 		}
 	}

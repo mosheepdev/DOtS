@@ -11,7 +11,7 @@ public class Camera {
 	private Vector3f position;
 
 	/**
-	 * Graphic projection.
+	 * Graphic projection. This is stationary for some safety reason.
 	 */
 	private Matrix4f projection;
 

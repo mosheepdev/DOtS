@@ -1,6 +1,5 @@
 package com.kongkongmao.dots.util;
 
-import static com.kongkongmao.dots.util.Utils.getDir;
 import static com.kongkongmao.dots.util.Utils.writeLine;
 import static com.kongkongmao.dots.util.Utils.getSysTimeStr;
 import static com.kongkongmao.dots.util.Utils.createFile;
@@ -17,7 +16,7 @@ public class Logger {
 	/**
 	 * The log file.
 	 */
-	private File log = new File(getDir() + "\\DOtS-Log.txt");
+	private File log = new File(".\\DOtS-Log.txt");
 
 	/**
 	 * The thread that this logger is recording.
@@ -25,7 +24,7 @@ public class Logger {
 	private String thread;
 
 	public Logger() {
-		thread = "Unknown";
+		thread = "SCP-055";
 	}
 
 	public Logger(String _thread) {

@@ -25,6 +25,11 @@ public class Texture {
 	private int width, height;
 
 	public Texture(String file) {
+		/*
+		 * This method of decoding the texture file is completely dump because
+		 * the IndexOverBound exceptions are too easy to be triggered.
+		 * Replacement is now in discussing. (Discuss 个屁啊，分明只有我一个人在做啊233)
+		 */
 		BufferedImage bi;
 		try {
 			bi = ImageIO.read(new File(file));

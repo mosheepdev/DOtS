@@ -19,6 +19,17 @@ public class Model2D {
 
 	private int i_id;
 
+	/**
+	 * The model of a texture or eucild figure.
+	 * 
+	 * @param vertices
+	 *            The vertices of the basement eucild figure.
+	 * @param tex_coords
+	 *            The coords of the textures.
+	 * @param indices
+	 *            The indices for the VBO rendering. Look up <br>
+	 *            GL_ELEMENT_ARRAY_BUFFER for more detail.
+	 */
 	public Model2D(float[] vertices, float[] tex_coords, int[] indices) {
 		d_count = indices.length;
 
@@ -45,17 +56,13 @@ public class Model2D {
 	}
 
 	public void render() {
-		// glEnableClientState(GL_VERTEX_ARRAY);
-		// glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableVertexAttribArray(0);
 		glEnableVertexAttribArray(1);
 
 		glBindBuffer(GL_ARRAY_BUFFER, v_id);
-		// glVertexPointer(3, GL_FLOAT, 0, 0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
 
 		glBindBuffer(GL_ARRAY_BUFFER, t_id);
-		// glTexCoordPointer(2, GL_FLOAT, 0, 0);
 		glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
@@ -67,8 +74,6 @@ public class Model2D {
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
-		// glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-		// glDisableClientState(GL_VERTEX_ARRAY);
 	}
 
 	protected FloatBuffer createFBuffer(float[] data) {
