@@ -1,14 +1,13 @@
 package com.kongkongmao.dots.gui;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.nio.ByteBuffer;
-import javax.imageio.ImageIO;
+import java.nio.IntBuffer;
+
 import org.lwjgl.BufferUtils;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.*;
+import static org.lwjgl.stb.STBImage.*;
 
 /**
  * Class: Texture <br>
@@ -25,41 +24,24 @@ public class Texture {
 	private int width, height;
 
 	public Texture(String file) {
-		/*
-		 * This method of decoding the texture file is completely dump because
-		 * the IndexOverBound exceptions are too easy to be triggered.
-		 * Replacement is now in discussing. (Discuss 个屁啊，分明只有我一个人在做啊233)
-		 */
-		BufferedImage bi;
-		try {
-			bi = ImageIO.read(new File(file));
-			width = bi.getWidth();
-			height = bi.getHeight();
-			int[] pixels_r = new int[width * height];
-			pixels_r = bi.getRGB(0, 0, width, height, null, 0, width);
-			ByteBuffer pixels = BufferUtils.createByteBuffer(width * height * 4);
+		IntBuffer width = BufferUtils.createIntBuffer(1);
+		IntBuffer height = BufferUtils.createIntBuffer(1);
+		IntBuffer comp = BufferUtils.createIntBuffer(1);
 
-			for (int i = 0; i < width; i++)
-				for (int j = 0; j < height; j++) {
-					int pixel = pixels_r[i * width + j];
-					pixels.put((byte) ((pixel >> 020) & 0xff)); // R
-					pixels.put((byte) ((pixel >> 010) & 0xff)); // G
-					pixels.put((byte) (pixel & 0xff)); // B
-					pixels.put((byte) ((pixel >> 030) & 0xff)); // A
-				}
+		ByteBuffer data = stbi_load(file, width, height, comp, 4);
 
-			pixels.flip();
-			id = glGenTextures();
+		id = glGenTextures();
+		this.width = width.get();
+		this.height = height.get();
 
-			glBindTexture(GL_TEXTURE_2D, id);
+		glBindTexture(GL_TEXTURE_2D, id);
 
-			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, this.width, this.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+		stbi_image_free(data);
 	}
 
 	/**
