@@ -84,8 +84,7 @@ public class I18n {
 		public String reveal(String key) {
 			if (values.containsKey(key))
 				return values.get(key);
-			else
-				return key;
+			return key;
 		}
 
 		public static Locales parse(String x) {

@@ -150,9 +150,9 @@ public class Configuration {
 			}
 		};
 
-		protected void initialize(String $value) {
-			if (LEGAL_VAL.contains($value))
-				value = $value;
+		protected void initialize(String _value) {
+			if (LEGAL_VAL.contains(_value))
+				value = _value;
 			else {
 				value = DEFAULT;
 				settings.put(NAME, DEFAULT);
@@ -165,9 +165,9 @@ public class Configuration {
 		}
 
 		@Override
-		public void set(String $value) {
-			value = $value;
-			settings.put(NAME, $value);
+		public void set(String _value) {
+			value = _value;
+			settings.put(NAME, _value);
 		}
 
 	}
