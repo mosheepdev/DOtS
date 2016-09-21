@@ -18,12 +18,12 @@ public class Main {
 		logger.info("Initializing the program...");
 		Configuration.initialize();
 		I18n.initialize();
-		Machining.LibInit();
+		Machining.libInit();
 		logger.info("Initializing the client...");
 		MainWindow.window();
 		logger.info("Shutting down client...");
 		Configuration.closeUp();
-		Machining.LibAbrogate();
+		Machining.libAbrogate();
 		logger.info("The client is shut down. Thank you for playing!");
 	}
 
