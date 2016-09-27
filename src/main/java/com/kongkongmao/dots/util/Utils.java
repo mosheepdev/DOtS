@@ -30,7 +30,7 @@ public class Utils {
 	/**
 	 * The correct directory of the archive.
 	 * 
-	 * @deprecated Use it for getting absolute path only. Use . instead <br>
+	 * @deprecated Use it for getting absolute path only. Use "." instead <br>
 	 *             to mark "this" directory.
 	 */
 	@Deprecated
@@ -77,6 +77,22 @@ public class Utils {
 			pos = l.length();
 		l = l.substring(pos, l.length());
 		return l;
+	}
+
+	/**
+	 * Get the content of a text file as a single string.
+	 */
+	public static String readFileToSingleString(String path) throws IOException {
+		List<String> lns = new ArrayList<String>();
+		try {
+			lns = Files.readAllLines(new File(path).toPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		StringBuilder sb = new StringBuilder();
+		for (String x : lns)
+			sb.append(x).append("\n");
+		return sb.toString();
 	}
 
 	/** Read the total lines of a text file. */
@@ -152,22 +168,6 @@ public class Utils {
 		URL url = Resources.getResource(path);
 		Charset cs = Charset.forName(References.DEFAULT_ENCODE);
 		return Resources.readLines(url, cs);
-	}
-
-	/**
-	 * Get the content of a text file as a single string.
-	 */
-	public static String readFileToSingleString(String path) throws IOException {
-		List<String> lns = new ArrayList<String>();
-		try {
-			lns = Files.readAllLines(new File(path).toPath());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		StringBuilder sb = new StringBuilder();
-		for (String x : lns)
-			sb.append(x).append("\n");
-		return sb.toString();
 	}
 
 }

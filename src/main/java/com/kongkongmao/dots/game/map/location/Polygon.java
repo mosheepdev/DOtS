@@ -5,10 +5,21 @@ import java.util.List;
 
 public class Polygon {
 
+	/**
+	 * Number of edges.
+	 */
 	private int edges;
 
+	/**
+	 * Vertices of the polygon. <br>
+	 * <i>It should me sorted in counter-clockwise.</i>
+	 */
 	private List<Point> vertices = new ArrayList<Point>();
 
+	/**
+	 * Height of the polygon, indicates the y value. <br>
+	 * This is the average value of all the y value in the vertices.
+	 */
 	private double height;
 
 	private Polygon() {

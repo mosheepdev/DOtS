@@ -52,9 +52,9 @@ public class Object {
 	 * original;</i> <br>
 	 * <b>2</b> <i>Instantly move to the location, with the new angle
 	 * facing;</i> <br>
-	 * <b>3</b> <i>Move to the location with the speed;</i> <br>
+	 * <b>3</b> <i>Move to the location with the speed.</i> <br>
 	 */
-	public void move(double _x, double y, double _z, double _theta, double _speed, int form) {
+	public void move(double _x, double _y, double _z, double _theta, double _speed, int form) {
 		// TODO 这里等模型系统做好了再做
 	}
 

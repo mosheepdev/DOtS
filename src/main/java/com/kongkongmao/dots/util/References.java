@@ -8,8 +8,6 @@ public class References {
 	/**
 	 * The Main class of the program, scilicet, the starting point of the
 	 * program.
-	 * 
-	 * @see com.kongkongmao.dots.main.Main
 	 */
 	public static final String MAIN_CLASS = "com.kongkongmao.dots.main.Main";
 

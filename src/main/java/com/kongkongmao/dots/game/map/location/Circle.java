@@ -7,8 +7,14 @@ public class Circle {
 	 */
 	private Point center;
 
+	/**
+	 * Radius of the circle.
+	 */
 	private double radius;
 
+	/**
+	 * Height of the polygon, indicates the y value.
+	 */
 	private double height;
 
 	private Circle() {
