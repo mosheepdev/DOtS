@@ -26,9 +26,10 @@ public class Polygon {
 	}
 
 	public Polygon(List<Point> _vertices) {
+		this.vertices = _vertices;
 		this.edges = ((_vertices.size()) * (_vertices.size() - 1)) / 2;
 		double[] heights = new double[_vertices.size()];
-		for (int i = 0; i < _vertices.size() + 1; i++)
+		for (int i = 0; i < _vertices.size(); i++)
 			heights[i] = _vertices.get(i).getY();
 		double sum = 0;
 		for (double x : heights)
@@ -46,6 +47,11 @@ public class Polygon {
 
 	public double getHeight() {
 		return this.height;
+	}
+	
+	@Override
+	public String toString() {
+		return vertices.toString() + ", totally " + vertices.size() + " point, " + edges + " edges.";
 	}
 
 }
