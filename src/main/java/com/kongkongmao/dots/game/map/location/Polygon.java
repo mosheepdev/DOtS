@@ -48,10 +48,5 @@ public class Polygon {
 	public double getHeight() {
 		return this.height;
 	}
-	
-	@Override
-	public String toString() {
-		return vertices.toString() + ", totally " + vertices.size() + " point, " + edges + " edges.";
-	}
 
 }

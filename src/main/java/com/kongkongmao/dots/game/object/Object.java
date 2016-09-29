@@ -1,5 +1,7 @@
 package com.kongkongmao.dots.game.object;
 
+import com.kongkongmao.dots.game.map.location.Point;
+
 public class Object {
 
 	/**
@@ -13,9 +15,9 @@ public class Object {
 	public int id;
 
 	/**
-	 * Coordinate of the object.
+	 * Location of the object.
 	 */
-	private double x, y, z;
+	private Point loc;
 
 	/**
 	 * The angle that the object is facing.
@@ -25,15 +27,20 @@ public class Object {
 	private Object() {
 	}
 
-	public Object(String name) {
-		this.unlocName = name;
+	public Object(String _name) {
+		this.unlocName = _name;
 	}
 
-	public Object(String name, double _x, double _y, double _z, double _theta) {
-		this.unlocName = name;
-		this.x = _x;
-		this.y = _y;
-		this.z = _z;
+	public Object(String _name, Point _loc, double _theta) {
+		this.unlocName = _name;
+		this.loc = _loc;
+		this.theta = _theta;
+		render();
+	}
+
+	public Object(String _name, double _x, double _y, double _z, double _theta) {
+		this.unlocName = _name;
+		this.loc = new Point(_x, _y, _z);
 		this.theta = _theta;
 		render();
 	}
@@ -54,7 +61,7 @@ public class Object {
 	 * facing;</i> <br>
 	 * <b>3</b> <i>Move to the location with the speed.</i> <br>
 	 */
-	public void move(double _x, double _y, double _z, double _theta, double _speed, int form) {
+	public void move(Point target, double _theta, double _speed, int form) {
 		// TODO 这里等模型系统做好了再做
 	}
 
@@ -66,15 +73,15 @@ public class Object {
 	}
 
 	public double getX() {
-		return this.x;
+		return this.loc.getX();
 	}
 
 	public double getY() {
-		return this.y;
+		return this.loc.getY();
 	}
 
 	public double getZ() {
-		return this.z;
+		return this.loc.getZ();
 	}
 
 	public double getFacing() {
@@ -83,6 +90,10 @@ public class Object {
 
 	public String getName() {
 		return unlocName;
+	}
+
+	public void setName(String _name) {
+		this.unlocName = _name;
 	}
 
 }

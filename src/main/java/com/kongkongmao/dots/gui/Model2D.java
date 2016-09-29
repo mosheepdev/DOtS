@@ -13,11 +13,11 @@ public class Model2D {
 
 	private int d_count;
 
-	private int v_id;
+	private int vertexObj;
 
-	private int t_id;
+	private int textureObj;
 
-	private int i_id;
+	private int indicesObj;
 
 	/**
 	 * The model of a texture or eucild figure.
@@ -33,24 +33,24 @@ public class Model2D {
 	public Model2D(float[] vertices, float[] tex_coords, int[] indices) {
 		d_count = indices.length;
 
-		v_id = glGenBuffers();
+		vertexObj = glGenBuffers();
 		FloatBuffer data_v = createFBuffer(vertices);
 		data_v.flip();
-		glBindBuffer(GL_ARRAY_BUFFER, v_id);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexObj);
 		glBufferData(GL_ARRAY_BUFFER, data_v, GL_STATIC_DRAW);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-		t_id = glGenBuffers();
+		textureObj = glGenBuffers();
 		FloatBuffer data_t = createFBuffer(vertices);
 		data_t.flip();
-		glBindBuffer(GL_ARRAY_BUFFER, t_id);
+		glBindBuffer(GL_ARRAY_BUFFER, textureObj);
 		glBufferData(GL_ARRAY_BUFFER, data_t, GL_STATIC_DRAW);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-		i_id = glGenBuffers();
+		indicesObj = glGenBuffers();
 		IntBuffer data_i = createIBuffer(indices);
 		data_i.flip();
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesObj);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, data_i, GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
@@ -59,13 +59,13 @@ public class Model2D {
 		glEnableVertexAttribArray(0);
 		glEnableVertexAttribArray(1);
 
-		glBindBuffer(GL_ARRAY_BUFFER, v_id);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexObj);
 		glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
 
-		glBindBuffer(GL_ARRAY_BUFFER, t_id);
+		glBindBuffer(GL_ARRAY_BUFFER, textureObj);
 		glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesObj);
 		glDrawElements(GL_TRIANGLES, d_count, GL_UNSIGNED_INT, 0);
 
 		glDrawArrays(GL_TRIANGLES, 0, d_count);
@@ -85,9 +85,9 @@ public class Model2D {
 	}
 
 	protected void finalize() throws Throwable {
-		glDeleteBuffers(v_id);
-		glDeleteBuffers(t_id);
-		glDeleteBuffers(i_id);
+		glDeleteBuffers(vertexObj);
+		glDeleteBuffers(textureObj);
+		glDeleteBuffers(indicesObj);
 		super.finalize();
 	}
 

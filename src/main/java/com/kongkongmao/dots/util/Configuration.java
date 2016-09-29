@@ -18,7 +18,7 @@ import java.util.Map;
 //
 // lang:[The language preference setting]
 //
-// Default "TNAI-Config.txt".
+// Default "DOtS-Config.txt".
 //
 public class Configuration {
 
