@@ -2,7 +2,7 @@ package com.kongkongmao.dots.game.object;
 
 import com.kongkongmao.dots.game.map.location.Point;
 
-public class Object {
+public class RenderObj {
 
 	/**
 	 * Name of the object.
@@ -24,21 +24,21 @@ public class Object {
 	 */
 	private double theta;
 
-	private Object() {
+	private RenderObj() {
 	}
 
-	public Object(String _name) {
+	public RenderObj(String _name) {
 		this.unlocName = _name;
 	}
 
-	public Object(String _name, Point _loc, double _theta) {
+	public RenderObj(String _name, Point _loc, double _theta) {
 		this.unlocName = _name;
 		this.loc = _loc;
 		this.theta = _theta;
 		render();
 	}
 
-	public Object(String _name, double _x, double _y, double _z, double _theta) {
+	public RenderObj(String _name, double _x, double _y, double _z, double _theta) {
 		this.unlocName = _name;
 		this.loc = new Point(_x, _y, _z);
 		this.theta = _theta;
