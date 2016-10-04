@@ -14,12 +14,6 @@ import java.util.Map;
 /**
  * Allow users to change the runtime configuration.
  */
-// A "standard" configuration file should be:
-//
-// lang:[The language preference setting]
-//
-// Default "DOtS-Config.txt".
-//
 public class Configuration {
 
 	/**

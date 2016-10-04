@@ -26,18 +26,6 @@ public class Rectangle {
 			this.height = _crd_tl.getY();
 	}
 
-	/**
-	 * @deprecated If the heights the points specified to be vertices <br>
-	 *             is different to the <b>_height</b> argument, the program may
-	 *             collapse.
-	 */
-	@Deprecated
-	public Rectangle(Point _crd_tl, Point _crd_br, double _height) {
-		this.crd_tl = _crd_tl;
-		this.crd_br = _crd_br;
-		this.height = _height;
-	}
-
 	public Point getTLCrd() {
 		return this.crd_tl;
 	}

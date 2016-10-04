@@ -31,19 +31,16 @@ public class Point {
 		return this.z;
 	}
 
-	public double setX(double _x) {
+	public void setX(double _x) {
 		this.x = _x;
-		return this.x;
 	}
 
-	public double setY(double _y) {
+	public void setY(double _y) {
 		this.y = _y;
-		return this.y;
 	}
 
-	public double setZ(double _z) {
+	public void setZ(double _z) {
 		this.z = _z;
-		return this.z;
 	}
 
 }

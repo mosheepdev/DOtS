@@ -5,9 +5,9 @@ import com.kongkongmao.dots.game.map.location.Point;
 public class RenderObj {
 
 	/**
-	 * Name of the object.
+	 * Scale of the rendering model.
 	 */
-	private String unlocName;
+	private double scale;
 
 	/**
 	 * The object id in the current rendering.
@@ -27,19 +27,13 @@ public class RenderObj {
 	private RenderObj() {
 	}
 
-	public RenderObj(String _name) {
-		this.unlocName = _name;
-	}
-
-	public RenderObj(String _name, Point _loc, double _theta) {
-		this.unlocName = _name;
+	public RenderObj(Point _loc, double _theta) {
 		this.loc = _loc;
 		this.theta = _theta;
 		render();
 	}
 
-	public RenderObj(String _name, double _x, double _y, double _z, double _theta) {
-		this.unlocName = _name;
+	public RenderObj(double _x, double _y, double _z, double _theta) {
 		this.loc = new Point(_x, _y, _z);
 		this.theta = _theta;
 		render();
@@ -72,28 +66,26 @@ public class RenderObj {
 		// TODO 这里等模型系统做好了再做
 	}
 
-	public double getX() {
-		return this.loc.getX();
+	public Point getLocation() {
+		return this.loc;
 	}
 
-	public double getY() {
-		return this.loc.getY();
-	}
-
-	public double getZ() {
-		return this.loc.getZ();
+	public void setLocation(Point _loc) {
+		this.loc.setX(_loc.getX());
+		this.loc.setY(_loc.getY());
+		this.loc.setZ(_loc.getZ());
 	}
 
 	public double getFacing() {
 		return this.theta;
 	}
 
-	public String getName() {
-		return unlocName;
+	public double getScale() {
+		return this.scale;
 	}
 
-	public void setName(String _name) {
-		this.unlocName = _name;
+	public void setScale(double _scale) {
+		this.scale = _scale;
 	}
 
 }

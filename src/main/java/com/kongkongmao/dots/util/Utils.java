@@ -29,11 +29,7 @@ public class Utils {
 
 	/**
 	 * The correct directory of the archive.
-	 * 
-	 * @deprecated Use it for getting absolute path only. Use "." instead <br>
-	 *             to mark "this" directory.
 	 */
-	@Deprecated
 	public static String getDir() {
 		return System.getProperty("user.dir");
 	}
