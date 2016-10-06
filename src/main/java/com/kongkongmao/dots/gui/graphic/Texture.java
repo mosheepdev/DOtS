@@ -1,4 +1,4 @@
-package com.kongkongmao.dots.gui;
+package com.kongkongmao.dots.gui.graphic;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
