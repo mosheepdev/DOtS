@@ -1,4 +1,4 @@
-package com.kongkongmao.dots.game.render;
+package com.kongkongmao.dots.gui.render;
 
 import com.kongkongmao.dots.game.map.location.Point;
 
