@@ -4,12 +4,42 @@ import org.lwjgl.glfw.GLFWMouseButtonCallback;
 
 public abstract class GuiControl {
 
+	/**
+	 * ID of the control in the current form.
+	 */
+	private int id;
+
 	private int x, y;
 	private double w, h;
+
+	public boolean isHidden;
+
+	GuiControl() {
+
+	}
+
+	GuiControl(int _id) {
+
+	}
+
+	GuiControl(int _id, int _x, int _y, double _w, double _h) {
+
+	}
+
+	GuiControl(int _id, int _x, int _y, double _w, double _h, boolean _isHidden) {
+
+	}
 
 	abstract void render();
 
 	abstract void update();
+
+	abstract void hide();
+
+	abstract void show();
+
+	@Deprecated
+	abstract void destroy();
 
 	abstract void relocate(int _x, int _y);
 
@@ -17,36 +47,20 @@ public abstract class GuiControl {
 
 	abstract void onClick(GLFWMouseButtonCallback callback);
 
-	public int getX() {
+	public int x() {
 		return this.x;
 	}
 
-	public void setX(int _x) {
-		this.x = _x;
-	}
-
-	public int getY() {
+	public int y() {
 		return this.y;
 	}
 
-	public void setY(int _y) {
-		this.y = _y;
-	}
-
-	public double getW() {
+	public double w() {
 		return this.w;
 	}
 
-	public void setW(double _w) {
-		this.w = _w;
-	}
-
-	public double getH() {
+	public double h() {
 		return this.h;
-	}
-
-	public void setH(double _h) {
-		this.h = _h;
 	}
 
 }

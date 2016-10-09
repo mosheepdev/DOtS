@@ -35,6 +35,7 @@ public class Polygon {
 		for (double x : heights)
 			sum += x;
 		this.height = sum / heights.length;
+		// Gets the average height for the height of the polygon.
 	}
 
 	public int getEdges() {
@@ -42,7 +43,7 @@ public class Polygon {
 	}
 
 	public List<Point> getPoints() {
-		return vertices;
+		return this.vertices;
 	}
 
 	public double getHeight() {

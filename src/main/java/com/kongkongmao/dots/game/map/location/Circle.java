@@ -24,8 +24,22 @@ public class Circle {
 		return this.center;
 	}
 
+	public void setCenter(Point _center) {
+		this.center.setX(_center.getX());
+		this.center.setY(_center.getY());
+		this.center.setZ(_center.getZ());
+	}
+
 	public double getRadius() {
 		return this.radius;
+	}
+
+	public void setRadius(double _radius) {
+		this.radius = _radius;
+	}
+
+	public double getHeight() {
+		return this.center.getY();
 	}
 
 }
