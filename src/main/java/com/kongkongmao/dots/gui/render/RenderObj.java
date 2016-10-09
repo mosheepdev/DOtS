@@ -80,6 +80,10 @@ public class RenderObj {
 		return this.theta;
 	}
 
+	public void setFacing(double _theta) {
+		this.theta = _theta;
+	}
+
 	public double getScale() {
 		return this.scale;
 	}
