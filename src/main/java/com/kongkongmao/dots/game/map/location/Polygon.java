@@ -50,4 +50,8 @@ public class Polygon {
 		return this.height;
 	}
 
+	public void setHeight(double _height) {
+		this.height = _height;
+	}
+
 }

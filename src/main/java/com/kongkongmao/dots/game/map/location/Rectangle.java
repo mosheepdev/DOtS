@@ -39,7 +39,7 @@ public class Rectangle {
 		this.crd_tl.setX(_crd_tl.getX());
 		this.crd_tl.setY(_crd_tl.getY());
 		this.crd_tl.setZ(_crd_tl.getZ());
-		if (_crd_tl.getY() != crd_br.getY())
+		if (Double.compare(_crd_tl.getY(), crd_br.getY()) != 0)
 			this.height = Math.abs((_crd_tl.getY() - crd_br.getY()) / 2);
 		else
 			this.height = _crd_tl.getY();
@@ -49,7 +49,7 @@ public class Rectangle {
 		this.crd_br.setX(_crd_br.getX());
 		this.crd_br.setY(_crd_br.getY());
 		this.crd_br.setZ(_crd_br.getZ());
-		if (crd_tl.getY() != _crd_br.getY())
+		if (Double.compare(crd_tl.getY(), _crd_br.getY()) != 0)
 			this.height = Math.abs((crd_tl.getY() - _crd_br.getY()) / 2);
 		else
 			this.height = crd_br.getY();
