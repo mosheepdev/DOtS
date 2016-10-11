@@ -15,19 +15,15 @@ public abstract class GuiControl {
 	public boolean isHidden;
 
 	GuiControl() {
-
 	}
 
 	GuiControl(int _id) {
-
 	}
 
 	GuiControl(int _id, int _x, int _y, double _w, double _h) {
-
 	}
 
 	GuiControl(int _id, int _x, int _y, double _w, double _h, boolean _isHidden) {
-
 	}
 
 	abstract void render();
