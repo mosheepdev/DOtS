@@ -10,9 +10,7 @@ public class TextRenderer {
 	private static Map<Integer, String> strings = new HashMap<Integer, String>();
 
 	public static void drawStr(String _string, int _x, int _y, int _renderID) {
-		_string = I18n.t(_string);
-		strings.put(_renderID, _string);
-		// TODO 在研究stb中……
+		drawStr(new RText(_string, 12), _x, _y, _renderID);
 	}
 
 	public static void drawStr(RText _text, int _x, int _y, int _renderID) {
