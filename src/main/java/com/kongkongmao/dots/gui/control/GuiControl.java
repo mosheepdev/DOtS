@@ -1,7 +1,5 @@
 package com.kongkongmao.dots.gui.control;
 
-import org.lwjgl.glfw.GLFWMouseButtonCallback;
-
 public abstract class GuiControl {
 
 	/**
@@ -14,16 +12,7 @@ public abstract class GuiControl {
 
 	public boolean isHidden;
 
-	GuiControl() {
-	}
-
-	GuiControl(int _id) {
-	}
-
-	GuiControl(int _id, int _x, int _y, double _w, double _h) {
-	}
-
-	GuiControl(int _id, int _x, int _y, double _w, double _h, boolean _isHidden) {
+	protected GuiControl() {
 	}
 
 	abstract void render();
@@ -40,8 +29,6 @@ public abstract class GuiControl {
 	abstract void relocate(int _x, int _y);
 
 	abstract void resize(double _w, double _h);
-
-	abstract void onClick(GLFWMouseButtonCallback callback);
 
 	public int x() {
 		return this.x;
