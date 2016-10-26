@@ -1,9 +1,9 @@
-apply plugin: 'java'
+apply plugin: "java"
 
 project.ext.lwjglVersion = "3.0.0"
 
-archivesBaseName = 'DOtS'
-version = '001'
+archivesBaseName = "DOtS"
+version = "001"
 
 repositories {
 	mavenCentral()
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-	compile 'com.google.guava:guava:19.0'
+	compile "com.google.guava:guava:19.0"
 	compile "org.lwjgl:lwjgl:${lwjglVersion}"
 	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
 	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
@@ -21,7 +21,7 @@ dependencies {
 }
 
 task run(type: JavaExec, dependsOn: classes) {
-    main = 'Main'
+    main = "Main"
     classpath sourceSets.main.runtimeClasspath
     classpath configurations.runtime
 }

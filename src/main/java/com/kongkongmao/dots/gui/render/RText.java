@@ -7,7 +7,7 @@ public class RText implements Cloneable {
 	/**
 	 * The font size.
 	 */
-	public int scale;
+	public float scale;
 
 	private RText() {
 	}
@@ -17,7 +17,7 @@ public class RText implements Cloneable {
 		this.scale = 1;
 	}
 
-	public RText(String _cont, int _scale) {
+	public RText(String _cont, float _scale) {
 		this.content = _cont;
 		this.scale = _scale;
 	}
