@@ -39,15 +39,18 @@ If you aren't the member, please use [Pull Request](https://github.com/kongkongm
 
 The libraries used in the coding:
 
-[Google Guava - 19.0](https://github.com/google/guava)
+
+[Google Guava - 20.0](https://github.com/google/guava)
 
 
 [LWJGL - 3.0.0](https://www.lwjgl.org/)
 
 
-[NIO(Netty) - 4.1.3.Final](http://netty.io/)
+[NIO(Netty) - 4.1.6.Final](http://netty.io/)
 
-[JOML - 1.8.2](https://github.com/JOML-CI/JOML)
+
+[JOML - 1.9.0](https://github.com/JOML-CI/JOML)
+
 
 以上为程序使用到的库文件。
 
