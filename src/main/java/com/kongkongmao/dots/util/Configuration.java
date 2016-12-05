@@ -121,7 +121,7 @@ public class Configuration {
 
 		abstract String get();
 
-		abstract void set(String $value);
+		abstract void set(String _value);
 
 	}
 

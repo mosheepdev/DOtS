@@ -22,20 +22,20 @@ public class RenderObj {
 	/**
 	 * The angle that the object is facing.
 	 */
-	private double theta;
+	private double facing;
 
 	private RenderObj() {
 	}
 
-	public RenderObj(Point _loc, double _theta) {
+	public RenderObj(Point _loc, double _facing) {
 		this.loc = _loc;
-		this.theta = _theta;
+		this.facing = _facing;
 		render();
 	}
 
-	public RenderObj(double _x, double _y, double _z, double _theta) {
+	public RenderObj(double _x, double _y, double _z, double _facing) {
 		this.loc = new Point(_x, _y, _z);
-		this.theta = _theta;
+		this.facing = _facing;
 		render();
 	}
 
@@ -55,7 +55,7 @@ public class RenderObj {
 	 * facing;</i> <br>
 	 * <b>3</b> <i>Move to the location with the speed.</i> <br>
 	 */
-	public void move(Point target, double _theta, double _speed, int form) {
+	public void move(Point target, double _facing, double _speed, int form) {
 		// TODO 这里等模型系统做好了再做
 	}
 
@@ -77,11 +77,11 @@ public class RenderObj {
 	}
 
 	public double getFacing() {
-		return this.theta;
+		return this.facing;
 	}
 
-	public void setFacing(double _theta) {
-		this.theta = _theta;
+	public void setFacing(double _facing) {
+		this.facing = _facing;
 	}
 
 	public double getScale() {

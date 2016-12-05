@@ -12,9 +12,9 @@ public class Machining {
 	private static final Logger logger = new Logger("Main");
 
 	protected static void libInit() {
+		Library.initialize();
 		if (!glfwInit())
 			throw new IllegalStateException("Failed to initialize GLFW.");
-		Library.initialize();
 		logger.info("Successfully initialized the Lwjgl library.");
 	}
 
