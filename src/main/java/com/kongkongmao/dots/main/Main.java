@@ -4,6 +4,7 @@ import com.kongkongmao.dots.gui.window.MainWindow;
 import com.kongkongmao.dots.util.Configuration;
 import com.kongkongmao.dots.util.I18n;
 import com.kongkongmao.dots.util.Logger;
+import com.kongkongmao.dots.util.References;
 
 /**
  * The main, scilicet, the starting point of the client.
@@ -13,12 +14,13 @@ public class Main {
 	private static final Logger logger = new Logger("Main");
 
 	public static void main(String[] args) {
+		Machining.initialize();
 		logger.logFile();
-		logger.info("Welcome to DOtS!");
 		logger.info("Initializing the program...");
 		Configuration.initialize();
 		I18n.initialize();
 		Machining.libInit();
+		logger.info("Welcome to " + I18n.t(References.NAME) + " !");
 		logger.info("Initializing the client...");
 		MainWindow.window();
 		logger.info("Shutting down client...");

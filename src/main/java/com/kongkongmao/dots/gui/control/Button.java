@@ -75,7 +75,7 @@ public class Button extends GuiControl implements Clickable {
 	@Override
 	public void onRelease(GLFWMouseButtonCallback _callback) {
 	}
-	
+
 	public int x() {
 		return this.x;
 	}

@@ -1,10 +1,14 @@
 package com.kongkongmao.dots.util;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.kongkongmao.dots.main.Machining;
 
 /**
  * Internationalization and localization.
@@ -72,7 +76,9 @@ public class I18n {
 		}
 
 		public void readValues() throws IOException {
-			List<String> trans = Utils.getResContent("dots/i18n/" + name + ".lang");
+			List<String> trans = new ArrayList<String>();
+			else
+				trans = Files.readAllLines(new File("src\\main\\resources\\dots\\i18n\\" + name + ".lang").toPath());
 			for (String x : trans) {
 				if (x.indexOf(IND) != -1) {
 					int index = x.indexOf(IND);
