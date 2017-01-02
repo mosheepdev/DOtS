@@ -79,7 +79,7 @@ public class Utils {
 	 * Get the content of a text file as a single string.
 	 */
 	public static String readFileToSingleString(String path) throws IOException {
-		List<String> lns = new ArrayList<String>();
+		List<String> lns = new ArrayList<>();
 		try {
 			lns = Files.readAllLines(new File(path).toPath());
 		} catch (IOException e) {

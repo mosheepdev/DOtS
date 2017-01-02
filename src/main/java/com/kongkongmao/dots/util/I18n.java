@@ -76,7 +76,7 @@ public class I18n {
 		}
 
 		public void readValues() throws IOException {
-			List<String> trans = new ArrayList<String>();
+			List<String> trans = new ArrayList<>();
 			if (Machining.inJar)
 				trans = Utils.getResContent("dots/i18n/" + name + ".lang");
 			else

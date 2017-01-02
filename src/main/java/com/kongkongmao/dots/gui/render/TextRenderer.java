@@ -7,7 +7,7 @@ import com.kongkongmao.dots.util.I18n;
 
 public class TextRenderer {
 
-	private static Map<Integer, String> strings = new HashMap<Integer, String>();
+	private static Map<Integer, String> strings = new HashMap<>();
 
 	public static void drawStr(String _string, int _x, int _y, int _renderID) {
 		drawStr(new RText(_string, 12.0f), _x, _y, _renderID);

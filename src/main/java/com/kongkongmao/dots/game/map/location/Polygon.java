@@ -14,7 +14,7 @@ public class Polygon {
 	 * Vertices of the polygon. <br>
 	 * <i>It should me sorted in counter-clockwise.</i>
 	 */
-	private List<Point> vertices = new ArrayList<Point>();
+	private List<Point> vertices = new ArrayList<>();
 
 	/**
 	 * Height of the polygon, indicates the y value. <br>
