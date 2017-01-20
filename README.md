@@ -1,4 +1,4 @@
-# DOtS
+﻿# DOtS
 Defend Of the SBs ------ A moba fighting game!
 
 DOtS refers to "Defend Of the SBs", which is saluting the game DOtA, and its derivative MOBA games.
@@ -43,13 +43,13 @@ The libraries used in the coding:
 [Google Guava - 20.0](https://github.com/google/guava)
 
 
-[LWJGL - 3.0.0](https://www.lwjgl.org/)
+[LWJGL - 3.1.0](https://www.lwjgl.org/)
 
 
 [NIO(Netty) - 4.1.6.Final](http://netty.io/)
 
 
-[JOML - 1.9.0](https://github.com/JOML-CI/JOML)
+[JOML - 1.9.1](https://github.com/JOML-CI/JOML)
 
 
 以上为程序使用到的库文件。
