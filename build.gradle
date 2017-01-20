@@ -1,9 +1,25 @@
 apply plugin: "java"
 
-project.ext.lwjglVersion = "3.0.0"
+import org.gradle.internal.os.OperatingSystem
+
+project.ext.lwjglVersion = "3.1.0"
+project.ext.jomlVersion = "1.9.1"
+project.ext.steamworks4jVersion = "1.6.1"
 
 archivesBaseName = "DOtS"
 version = "001"
+
+switch (OperatingSystem.current()) {
+	case OperatingSystem.WINDOWS:
+		project.ext.lwjglNatives = "natives-windows"
+		break
+	case OperatingSystem.LINUX:
+		project.ext.lwjglNatives = "natives-linux"
+	break
+	case OperatingSystem.MAC_OS:
+		project.ext.lwjglNatives = "natives-macos"
+		break
+}
 
 repositories {
 	mavenCentral()
@@ -12,12 +28,45 @@ repositories {
 
 dependencies {
 	compile "com.google.guava:guava:20.0"
-	compile "org.lwjgl:lwjgl:${lwjglVersion}"
-	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
-	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
-	compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
 	compile "io.netty:netty-microbench:4.1.6.Final"
-	compile "org.joml:joml:1.9.0"
+	compile "org.lwjgl:lwjgl:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-bgfx:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-egl:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-glfw:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-jawt:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-lmdb:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-nanovg:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-nfd:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-nuklear:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-openal:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-opencl:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-opengl:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-opengles:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-ovr:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-par:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-sse:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-stb:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-tinyfd:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-vulkan:${lwjglVersion}"
+	compile "org.lwjgl:lwjgl-xxhash:${lwjglVersion}"
+	runtime "org.lwjgl:lwjgl:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-bgfx:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-glfw:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-lmdb:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-nanovg:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-nfd:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-nuklear:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-openal:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-ovr:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-par:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-sse:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-stb:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-tinyfd:${lwjglVersion}:${lwjglNatives}"
+	runtime "org.lwjgl:lwjgl-xxhash:${lwjglVersion}:${lwjglNatives}"
+	compile "org.joml:joml:${jomlVersion}"
+	compile "com.code-disaster.steamworks4j:steamworks4j:${steamworks4jVersion}"
 }
 
 task run(type: JavaExec, dependsOn: classes) {
