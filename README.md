@@ -40,16 +40,19 @@ If you aren't the member, please use [Pull Request](https://github.com/kongkongm
 The libraries used in the coding:
 
 
-[Google Guava - 20.0](https://github.com/google/guava)
+[Google Guava - 21.0](https://github.com/google/guava)
 
 
-[LWJGL - 3.1.0](https://www.lwjgl.org/)
+[LWJGL - 3.1.1](https://www.lwjgl.org/)
 
 
-[NIO(Netty) - 4.1.6.Final](http://netty.io/)
+[NIO(Netty) - 4.1.7.Final](http://netty.io/)
 
 
 [JOML - 1.9.1](https://github.com/JOML-CI/JOML)
+
+
+[SteamWorks Java Wrapper - 1.6.1](https://github.com/code-disaster/steamworks4j)
 
 
 以上为程序使用到的库文件。
