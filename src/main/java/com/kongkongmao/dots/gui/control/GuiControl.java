@@ -5,7 +5,7 @@ public abstract class GuiControl {
 	/**
 	 * ID of the control in the current form.
 	 */
-	private int id;
+	public int id;
 
 	private int x, y;
 	private double w, h;
@@ -23,7 +23,6 @@ public abstract class GuiControl {
 
 	abstract void show();
 
-	@Deprecated
 	abstract void destroy();
 
 	abstract void relocate(int _x, int _y);

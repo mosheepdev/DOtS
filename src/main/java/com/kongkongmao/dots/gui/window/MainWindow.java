@@ -34,7 +34,6 @@ public class MainWindow {
 		glfwSwapInterval(1);
 		glfwShowWindow(win);
 		GL.createCapabilities();
-		MainLoop.doLoop();
 	}
 
 }
