@@ -33,6 +33,7 @@ public class MainWindow {
 		glfwMakeContextCurrent(win);
 		glfwSwapInterval(1);
 		glfwShowWindow(win);
+		glfwMakeContextCurrent(win);
 		GL.createCapabilities();
 	}
 

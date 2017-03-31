@@ -24,7 +24,7 @@ public class Logger {
 	private String thread;
 
 	public Logger() {
-		thread = "SCP-055";
+		thread = "unknown";
 	}
 
 	public Logger(String _thread) {
