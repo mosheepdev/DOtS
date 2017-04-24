@@ -67,7 +67,7 @@ public class Utils {
 	 * Read the context after a specified position of a line in a text file.
 	 */
 	public static String readLineSP(String filePath, int line, int pos) throws IOException {
-		pos = pos - 1;
+		pos -= 1;
 		String l = readLineS(filePath, line);
 		if (l.length() < pos)
 			pos = l.length();
@@ -137,15 +137,16 @@ public class Utils {
 	 * The old data after the position will be erased. <br>
 	 */
 	public static void writeLineSP(String filePath, String msg, int line, int pos) throws IOException {
-		pos = pos - 1;
+		pos -= 1;
+		line -= 1;
 		File f = new File(filePath);
 		List<String> lines = Files.readAllLines(f.toPath());
-		String l = lines.get(line - 1);
+		String l = lines.get(line);
 		if (l.length() < pos)
 			pos = l.length();
 		l = l.substring(l.length() - pos);
 		l = l + msg;
-		lines.set(line - 1, l);
+		lines.set(line, l);
 		Files.write(f.toPath(), lines);
 	}
 

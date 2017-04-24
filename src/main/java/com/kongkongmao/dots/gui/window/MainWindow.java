@@ -30,7 +30,6 @@ public class MainWindow {
 		if (win == NULL)
 			throw new RuntimeException("Failed to create the GLFW window.");
 		logger.info("Successfully created the GLFW window.");
-		glfwMakeContextCurrent(win);
 		glfwSwapInterval(1);
 		glfwShowWindow(win);
 		glfwMakeContextCurrent(win);
