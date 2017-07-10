@@ -2,11 +2,11 @@ apply plugin: "java"
 
 import org.gradle.internal.os.OperatingSystem
 
-project.ext.guavaVersion = "21.0"
-project.ext.nettyVersion = "4.1.7.Final"
-project.ext.lwjglVersion = "3.1.1"
-project.ext.jomlVersion = "1.9.1"
-project.ext.steamworks4jVersion = "1.6.1"
+project.ext.guavaVersion = "22.0"
+project.ext.nettyVersion = "4.1.13.Final"
+project.ext.lwjglVersion = "3.1.2"
+project.ext.jomlVersion = "1.9.3"
+project.ext.steamworks4jVersion = "1.6.2"
 
 archivesBaseName = "DOtS"
 version = "001"
@@ -19,6 +19,8 @@ repositories {
 dependencies {
 	compile "com.google.guava:guava:${guavaVersion}"
 	compile "io.netty:netty-all:${nettyVersion}"
+	compile "org.joml:joml:${jomlVersion}"
+	compile "com.code-disaster.steamworks4j:steamworks4j:${steamworks4jVersion}"
 	compile "org.lwjgl:lwjgl:${lwjglVersion}"
 	compile "org.lwjgl:lwjgl-bgfx:${lwjglVersion}"
 	compile "org.lwjgl:lwjgl-egl:${lwjglVersion}"
@@ -40,8 +42,6 @@ dependencies {
 	compile "org.lwjgl:lwjgl-tinyfd:${lwjglVersion}"
 	compile "org.lwjgl:lwjgl-vulkan:${lwjglVersion}"
 	compile "org.lwjgl:lwjgl-xxhash:${lwjglVersion}"
-	compile "org.joml:joml:${jomlVersion}"
-	compile "com.code-disaster.steamworks4j:steamworks4j:${steamworks4jVersion}"
 	compile "org.lwjgl:lwjgl:${lwjglVersion}:natives-windows"
 	compile "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux"
 	compile "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos"
