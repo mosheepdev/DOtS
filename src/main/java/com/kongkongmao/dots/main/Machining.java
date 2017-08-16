@@ -4,6 +4,7 @@ import com.kongkongmao.dots.util.Logger;
 
 import static org.lwjgl.glfw.GLFW.*;
 
+import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.system.Library;
 
 public class Machining {
@@ -19,6 +20,7 @@ public class Machining {
 		Library.initialize();
 		if (!glfwInit())
 			throw new IllegalStateException("Failed to initialize GLFW.");
+		GLFWErrorCallback.createPrint(System.err).set();
 		logger.info("Successfully initialized the Lwjgl library.");
 	}
 

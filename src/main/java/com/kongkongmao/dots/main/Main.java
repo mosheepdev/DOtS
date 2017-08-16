@@ -1,7 +1,5 @@
 package com.kongkongmao.dots.main;
 
-import com.kongkongmao.dots.gui.window.MainLoop;
-import com.kongkongmao.dots.gui.window.MainWindow;
 import com.kongkongmao.dots.util.Configuration;
 import com.kongkongmao.dots.util.I18n;
 import com.kongkongmao.dots.util.Logger;
@@ -23,8 +21,7 @@ public class Main {
 		Machining.libInit();
 		logger.info("Welcome to " + I18n.t(References.NAME) + " !");
 		logger.info("Initializing the client...");
-		MainWindow.window();
-		MainLoop.doLoop();
+		// Кутвукштп шы вщштп шт зкщпкуыыб здуфыу иу зфешуте....
 		logger.info("Shutting down client...");
 		Configuration.closeUp();
 		Machining.libAbrogate();

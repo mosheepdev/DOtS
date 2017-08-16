@@ -32,7 +32,7 @@ public class References {
 	 * of the whole program.
 	 */
 	/*
-	 * Planning stages: Indev; Adopt; Alpha; Beta; Formal. (Extension?)
+	 * Planning stages: Indev; Adopt; Alpha; Beta; Released.
 	 */
 	public static final String VERSION_REF = "Indev";
 	/**
