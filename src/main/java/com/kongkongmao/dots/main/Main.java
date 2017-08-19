@@ -21,7 +21,7 @@ public class Main {
 		Machining.libInit();
 		logger.info("Welcome to " + I18n.t(References.NAME) + " !");
 		logger.info("Initializing the client...");
-		// Кутвукштп шы вщштп шт зкщпкуыыб здуфыу иу зфешуте....
+		
 		logger.info("Shutting down client...");
 		Configuration.closeUp();
 		Machining.libAbrogate();

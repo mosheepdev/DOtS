@@ -9,7 +9,7 @@ import org.lwjgl.system.Library;
 
 public class Machining {
 
-	public static boolean inJar;
+	public static boolean inArchive;
 
 	private static final Logger logger = new Logger("Main");
 
@@ -36,7 +36,7 @@ public class Machining {
 	 * Check if the program is a jar archive.
 	 */
 	protected static void initialize() {
-		inJar = (Machining.class.getResource("Machining.class")).toString().startsWith("jar:");
+		inArchive = (Machining.class.getResource("Machining.class")).toString().startsWith("jar:");
 	}
 
 }
