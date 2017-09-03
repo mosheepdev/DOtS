@@ -1,4 +1,4 @@
-﻿# DOtS
+﻿# 暂时弃坑
 Defend Of the SBs ------ A moba fighting game!
 
 DOtS refers to "Defend Of the SBs", which is saluting the game DOtA, and its derivative MOBA games.
